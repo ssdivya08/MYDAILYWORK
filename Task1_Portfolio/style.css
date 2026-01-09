@@ -28,30 +28,6 @@ body {
   color: #333;
 }
 
-/* HERO */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 60px;
-}
-
-.hero-text {
-  max-width: 50%;
-}
-
-.hero-text h1 {
-  font-size: 42px;
-}
-
-.hero-text span {
-  color: #6a0dad;
-}
-
-.hero-text p {
-  margin: 20px 0;
-  color: #666;
-}
 
 .buttons {
   margin-top: 20px;
@@ -72,11 +48,6 @@ body {
 .secondary {
   border: 2px solid #6a0dad;
   color: #6a0dad;
-}
-
-/* HERO IMAGE */
-.hero-image img {
-  width: 400px;
 }
 
 /* SECTIONS */
