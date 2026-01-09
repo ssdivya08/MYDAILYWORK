@@ -32,8 +32,7 @@ body {
 /* HERO */
 .hero {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items:left;
   padding: 60px;
 }
 
@@ -42,13 +41,13 @@ body {
 }
 
 .hero-image img {
-  width: 200px;
+  width: 400px;
 }
 
 
 /* IMAGE */
 .hero-image img {
-  width: 120px;
+  width: 20px;
 }
 
 /* SECTIONS */
