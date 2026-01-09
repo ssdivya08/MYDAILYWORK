@@ -18,14 +18,19 @@ body {
 }
 
 .navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
 }
 
 .navbar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  color: #333;
 }
 
 
