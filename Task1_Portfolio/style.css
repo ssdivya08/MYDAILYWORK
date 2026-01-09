@@ -33,6 +33,7 @@ body {
 .hero {
   display: flex;
   align-items:left;
+  justify-content: space-between;
   padding: 60px;
 }
 
@@ -47,9 +48,8 @@ body {
 
 /* IMAGE */
 .hero-image img {
-  width: 200px;
+  width:400px;
 }
-
 /* SECTIONS */
 .section {
   padding: 50px;
