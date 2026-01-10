@@ -11,38 +11,35 @@ body {
 }
 
 /* NAVBAR */
+/* NAVBAR */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;   /* keeps items vertically centered */
-  padding: 20px 60px;
-  background-color: #333333; /* move background here for consistency */
+  background-color: #000;         /* Entire navbar in black */
+  padding: 0;
 }
 
 .navbar ul {
-  list-style-type: none;
+  list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;         /* makes list items horizontal */
-  gap: 20px;             /* spacing between items */
+  display: flex;                  /* Horizontal layout */
+  justify-content: center;       /* Center the nav items */
 }
 
 .navbar li {
-  /* optional: no extra styles needed unless you want spacing/padding */
+  margin: 0;
 }
 
 .navbar a {
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+  color: white;                  /* White text on black background */
+  padding: 16px 20px;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .navbar a:hover {
-  background-color: #575757; /* hover effect */
+  background-color: #222;        /* Slightly lighter black on hover */
 }
-
 /* HERO */
 .hero {
   display: flex;
