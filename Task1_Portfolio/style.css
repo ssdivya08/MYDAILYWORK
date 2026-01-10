@@ -41,13 +41,6 @@ body {
   background-color: #222;        /* Slightly lighter black on hover */
 }
 /* HERO */
-.hero {
-  display: flex;
-  align-items:left;
-  justify-content: space-between;
-  padding: 60px;
-}
-
 .hero-text {
   width: 50%;
 }
@@ -60,8 +53,8 @@ body {
   background-color: #000;
   padding: 10px;
   margin-top: 10px;
-  display: flex;
-  justify-content: center;
+  display:contains;
+  justify-content: normal;
   gap: 50px;
   border-radius: 8px;
 }
@@ -70,7 +63,7 @@ body {
 .btn {
   background-color: #fff;
   color: #000;
-  padding: 10px 22px;
+  padding: 5px 20px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 22px;
