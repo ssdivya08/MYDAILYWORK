@@ -14,15 +14,21 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;   /* keeps items vertically centered */
   padding: 20px 60px;
+  background-color: #333333; /* move background here for consistency */
 }
 
 .navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #333333;
+  display: flex;         /* makes list items horizontal */
+  gap: 20px;             /* spacing between items */
+}
+
+.navbar li {
+  /* optional: no extra styles needed unless you want spacing/padding */
 }
 
 .navbar a {
@@ -33,6 +39,9 @@ body {
   text-decoration: none;
 }
 
+.navbar a:hover {
+  background-color: #575757; /* hover effect */
+}
 
 /* HERO */
 .hero {
