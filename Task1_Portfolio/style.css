@@ -78,6 +78,7 @@ body {
 
 .hero-image img {
   max-width: 100%;
+  align-items: stretch;
   height: auto;
 }
 
