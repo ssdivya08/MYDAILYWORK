@@ -119,7 +119,7 @@ body {
 /* SKILLS & PROJECTS CARDS */
 .skills-content {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch; /* ensures both sides match height */
   gap: 40px;
   flex-wrap: wrap;
 }
@@ -127,12 +127,13 @@ body {
 .skills-image {
   flex: 1;
   min-width: 280px;
-  text-align: center;
+  display: flex;
+  align-items: stretch;
 }
 
 .skills-image img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  object-fit: cover;
   border-radius: 12px;
 }
 
