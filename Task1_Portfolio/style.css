@@ -70,16 +70,18 @@ body {
 .spaced {
   margin-bottom: 20px;
 }
-
 .hero-image {
   flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: stretch;
   text-align: right;
 }
 
 .hero-image img {
   max-width: 100%;
-  align-items: stretch;
-  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* Buttons */
