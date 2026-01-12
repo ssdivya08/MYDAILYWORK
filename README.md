@@ -32,5 +32,15 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 
 dth="402" height="325" alt="image" src="https://github.com/user-attachments/assets/eda74af3-2741-40b0-a52f-3688230becaf" />
 
+---
+
+## ▶️ How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/Task1_Portfolio.git
+2. navigate:
+   cd Task1_Portfolio
+
+
 
 
