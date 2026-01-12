@@ -135,36 +135,17 @@ header {
 }
 
 /* SKILLS */
-.skills-content {
-  display: flex;
-  align-items: stretch; 
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.skills-image {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  align-items: stretch;
-}
-
-.skills-image img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
 .skills-details {
-  flex: 2;
-  min-width: 300px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
 .skills-about {
   font-size: 1.1rem;
   color: #555;
-  line-height: 1.8;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .skills-grid {
@@ -175,7 +156,49 @@ header {
 
 .skill-category h3 {
   font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #000;
+  text-align: center;
 }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.card:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.card:hover p {
+  color: #ddd;
+}
+
 /* project section */
 .projects {
   display: flex;
