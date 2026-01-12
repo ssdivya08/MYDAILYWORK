@@ -1,19 +1,36 @@
-# MYDAILYWORK
+# 💼 Samatham Sai Divya | Portfolio
 
-This repository contains my daily learning, practice tasks, and assignments related to
-Computer Science and Software Development.
+Welcome to my personal portfolio website! This project showcases my skills, projects, resume, and contact information in a clean, responsive layout. Built with HTML, CSS, and JavaScript, it reflects my passion for web development and continuous learning.
 
-## Contents
-- Daily coding practice
-- Data Structures and Algorithms
-- Java, Python, and C programs
-- Database and SQL practice
-- Mini tasks and assignments
+---
 
-## Purpose
-The goal of this repository is to track my consistency, improve problem-solving skills,
-and build a strong foundation for software development roles.
+## 📌 Features
 
-## Author
-Samatham Sai Divya  
-B.Tech Computer Science Engineering
+- Responsive layout for desktop and mobile
+- Skills section with categorized cards:
+  - Frontend: HTML, CSS, JavaScript
+  - Backend: Node.js, REST APIs, Java
+  - Databases: MySQL, MongoDB
+- Projects section with screenshots and descriptions:
+  - Portfolio Website
+  - Bank Management System (Python + SQLite/MySQL)
+  - Sentiment Analysis Model (NLP + Logistic Regression)
+- Resume download button (PDF)
+- Contact section with email, phone, and LinkedIn
+- Footer with navigation links
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend:** HTML, CSS, JavaScript
+- 
+- **Other Projects:** Python, TF-IDF, Logistic Regression, SQLite
+
+---
+## 📂 Folder Structure
+
+dth="402" height="325" alt="image" src="https://github.com/user-attachments/assets/eda74af3-2741-40b0-a52f-3688230becaf" />
+
+
+
