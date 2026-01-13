@@ -211,13 +211,13 @@ header {
   justify-content: center;
   margin-top: 15px;
 }
-
 .project-images img {
-  width: 20px;       /* fixed width for consistency */
-  height: auto;
-  border-radius: 8px;
+  width: 250px;           /* fixed width */
+  height: 250px;          /* fixed height */
+  object-fit: cover;      /* crops image to fill square */
+  border-radius: 8px;     /* optional: rounded corners */
+  margin: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
 }
 
 .project-images img:hover {
