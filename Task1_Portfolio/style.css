@@ -200,18 +200,31 @@ header {
 }
 
 /* project section */
-.projects {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
 .project {
-  background: #eee;
-  padding: 20px;
-  width: 250px;
-  border-radius: 8px;
+  margin-bottom: 50px;
 }
+
+.project-images {
+  display: flex;
+  gap: 15px;          /* space between images */
+  flex-wrap: wrap;    /* allows wrapping on smaller screens */
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.project-images img {
+  width: 250px;       /* fixed width for consistency */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-images img:hover {
+  transform: scale(1.05);
+}
+
+
 #resume .btn {
   display: inline-block;
   margin-top: 20px;
