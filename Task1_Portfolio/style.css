@@ -269,4 +269,17 @@ footer a:hover {
 footer p {
   margin: 8px 0;
 }
+/* JS animation support */
+.section, .hero {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* Active navbar link */
+.navbar a.active {
+  background-color: #2e8b57;
+  color: #fff;
+}
+
 
