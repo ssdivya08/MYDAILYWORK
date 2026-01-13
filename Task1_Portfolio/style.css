@@ -200,21 +200,18 @@ header {
 }
 
 /* project section */
-.projects-grid {
+.projects-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 30px;
-  justify-content: center;
   margin-top: 30px;
 }
 
 .project-card {
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
   border-radius: 12px;
   padding: 20px;
-  width: 300px;
-  text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
@@ -222,19 +219,18 @@ header {
 .project-card:hover {
   transform: translateY(-5px);
 }
+
 .project-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #000;
+  color: #333;
 }
 
 .project-card p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #555;
-  line-height: 1.4;
+  line-height: 1.6;
 }
-
-
 
 #resume .btn {
   display: inline-block;
