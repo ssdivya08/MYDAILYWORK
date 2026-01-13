@@ -37,7 +37,7 @@ dth="402" height="325" alt="image" src="https://github.com/user-attachments/asse
 ## ▶️ How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Task1_Portfolio.git
+   git clone https://github.com/ssaidivya08/MYDAILYWORK.git
 2. navigate:
    cd Task1_Portfolio
 
