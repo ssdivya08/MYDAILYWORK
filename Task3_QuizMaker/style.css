@@ -4,7 +4,7 @@
 /* Body */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-image: url('Task3_QuizMaker/pexels-hannaauramenka-8409850.jpg');
+  background-image: url('pexels-hannaauramenka-8409850.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -97,42 +97,24 @@ form button:hover { background: #2980b9; }
 }
 #logoutBtn:hover { background: #c0392b; }
 
+/* Quiz Listing */
+#quizList { list-style: none; padding: 0; }
+#quizList li {
+  margin: 10px 0; padding: 10px;
+  background: #f4f4f4; border-radius: 6px;
+}
+#quizList button {
+  margin-left: 10px; padding: 6px 12px;
+  border: none; border-radius: 6px; cursor: pointer;
+}
+#quizList button:first-of-type {
+  background: #3498db; color: white;
+}
+#quizList button:first-of-type:hover { background: #2980b9; }
+#quizList button:last-of-type {
+  background: #e74c3c; color: white;
+}
+#quizList button:last-of-type:hover { background: #c0392b; }
+
 /* Footer */
 footer { text-align: center; margin-top: 30px; font-size: 0.9em; color: #777; }
-#quizList {
-  list-style: none;
-  padding: 0;
-}
-/* quize listing*/
-#quizList li {
-  margin: 10px 0;
-  padding: 10px;
-  background: #f4f4f4;
-  border-radius: 6px;
-}
-
-#quizList button {
-  margin-left: 10px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#quizList button:first-of-type {
-  background: #3498db;
-  color: white;
-}
-
-#quizList button:first-of-type:hover {
-  background: #2980b9;
-}
-
-#quizList button:last-of-type {
-  background: #e74c3c;
-  color: white;
-}
-
-#quizList button:last-of-type:hover {
-  background: #c0392b;
-}
