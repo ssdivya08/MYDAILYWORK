@@ -59,7 +59,6 @@ document.getElementById("quizForm").addEventListener("submit", (e) => {
 });
 
 // ---------------- QUIZ LISTING ----------------
-
 function loadQuizList() {
   const quizList = document.getElementById("quizList");
   quizList.innerHTML = ""; // clear old list
@@ -80,7 +79,16 @@ function loadQuizList() {
     quizList.appendChild(li);
   });
 }
-// Seed quizzes into localStorage if none exist
+
+function deleteQuiz(index) {
+  let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+  quizzes.splice(index, 1);
+  localStorage.setItem("quizzes", JSON.stringify(quizzes));
+  alert("Quiz deleted successfully!");
+  loadQuizList();
+}
+
+// ---------------- SEED SAMPLE QUIZZES ----------------
 if (!localStorage.getItem("quizzes")) {
   const sampleQuizzes = [
     {
@@ -108,11 +116,8 @@ if (!localStorage.getItem("quizzes")) {
       ]
     }
   ];
-
   localStorage.setItem("quizzes", JSON.stringify(sampleQuizzes));
 }
-
-
 
 // ---------------- QUIZ TAKING ----------------
 let currentQuiz = null;
@@ -208,7 +213,6 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 
 // ---------------- LOGOUT ----------------
 document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("user");
   alert("You have been logged out.");
 
   // Hide logout button again
@@ -227,5 +231,3 @@ document.getElementById("deleteAccountBtn").addEventListener("click", () => {
   document.getElementById("logoutBtn").style.display = "none";
 
   // Redirect to register
-  showSection("registerSection");
-});
