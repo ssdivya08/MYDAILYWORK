@@ -1,9 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=Task1_Portfolio/index.html">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Daily Work</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .task-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .task-links a {
+      display: inline-block;
+      padding: 15px 25px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      transition: background 0.3s ease;
+    }
+    .task-links a:hover {
+      background: #388e3c;
+    }
+  </style>
 </head>
 <body>
-  Redirecting to portfolio...
+  <h1>Welcome to My Daily Work</h1>
+  <p>Select a task to view:</p>
+  <div class="task-links">
+    <a href="Task1_Portfolio/index.html">Task 1: Portfolio Website</a>
+    <a href="Task3_QuizMaker/index.html">Task 3: Quiz Maker</a>
+  </div>
 </body>
 </html>
