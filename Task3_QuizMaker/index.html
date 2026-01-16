@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Quiz Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header with Welcome Message -->
+  <header>
+    <h1>Online Quiz Maker</h1>
+    <p class="welcome-message">
+      Welcome 🎉 Create your own quizzes, challenge friends, and test your knowledge.  
+      Choose an option below to get started!
+    </p>
+  </header>
 
+  <main>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button id="createQuizBtn">Create Quiz</button>
+      <button id="takeQuizBtn">Take Quiz</button>
+      <button id="listQuizzesBtn">Quiz Listing</button>
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
+    </div>
+
+    <!-- Quiz Creation Section -->
+    <section id="quizCreation" style="display:none;">
+      <h2>Create a New Quiz</h2>
+      <form id="quizForm">
+        <label>Quiz Title:</label>
+        <input type="text" id="quizTitle" required /><br><br>
+
+        <div id="questionsContainer"></div>
+
+        <button type="button" id="addQuestionBtn">Add Question</button>
+        <button type="submit">Save Quiz</button>
+      </form>
+    </section>
+
+    <!-- Quiz Taking Section -->
+    <section id="quizTaking" style="display:none;">
+      <h2>Take Quiz</h2>
+      <div id="quizSelector"></div>
+      <div id="quizContainer"></div>
+    </section>
+
+    <!-- Quiz Results Section -->
+    <section id="quizResults" style="display:none;">
+      <h2>Your Results</h2>
+      <p id="scoreDisplay"></p>
+      <div id="correctAnswers"></div>
+    </section>
+
+    <!-- Quiz Listing Section -->
+    <section id="quizListing" style="display:none;">
+      <h2>Available Quizzes</h2>
+      <ul id="quizList"></ul>
+    </section>
+
+    <!-- Login Section -->
+    <section id="loginSection" style="display:none;">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label>Email:</label>
+        <input type="email" id="loginEmail" required /><br>
+        <label>Password:</label>
+        <input type="password" id="loginPassword" required /><br>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <!-- Register Section -->
+    <section id="registerSection" style="display:none;">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <label>Email:</label>
+        <input type="email" id="registerEmail" required /><br>
+        <label>Password:</label>
+        <input type="password" id="registerPassword" required /><br>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Online Quiz Maker | Built by Samatham Sai Divya</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
