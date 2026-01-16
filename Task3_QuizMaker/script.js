@@ -7,7 +7,6 @@ function showSection(sectionId) {
 
 // ---------------- NAVIGATION ----------------
 document.getElementById("createQuizBtn").addEventListener("click", () => showSection("quizCreation"));
-document.getElementById("takeQuizBtn").addEventListener("click", () => showSection("quizTaking"));
 document.getElementById("listQuizzesBtn").addEventListener("click", () => {
   loadQuizList();
   showSection("quizListing");
@@ -127,52 +126,6 @@ if (!localStorage.getItem("quizzes")) {
 
   localStorage.setItem("quizzes", JSON.stringify(sampleQuizzes));
 }
-
-// ---------------- QUIZ TAKING ----------------
-let currentQuiz = null;
-let currentQuestionIndex = 0;
-let score = 0;
-
-function startQuiz(index) {
-  const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-  currentQuiz = quizzes[index];
-  currentQuestionIndex = 0;
-  score = 0;
-  showSection("quizTaking");
-  showQuestion();
-}
-
-function showQuestion() {
-  const container = document.getElementById("quizContainer");
-  container.innerHTML = "";
-
-  if (currentQuestionIndex < currentQuiz.questions.length) {
-    const qObj = currentQuiz.questions[currentQuestionIndex];
-    const qElem = document.createElement("div");
-    qElem.innerHTML = `<h3>${qObj.question}</h3>`;
-
-    qObj.options.forEach(opt => {
-      const btn = document.createElement("button");
-      btn.textContent = opt.trim();
-      btn.addEventListener("click", () => checkAnswer(opt.trim()));
-      qElem.appendChild(btn);
-    });
-
-    container.appendChild(qElem);
-  } else {
-    showResults();
-  }
-}
-
-function checkAnswer(selected) {
-  const qObj = currentQuiz.questions[currentQuestionIndex];
-  if (selected === qObj.answer.trim()) {
-    score++;
-  }
-  currentQuestionIndex++;
-  showQuestion();
-}
-
 // ---------------- QUIZ RESULTS ----------------
 function showResults() {
   showSection("quizResults");
@@ -243,4 +196,5 @@ document.getElementById("deleteAccountBtn").addEventListener("click", () => {
   // Redirect to register
   showSection("registerSection");
 });
+
 
