@@ -5,7 +5,7 @@ function showSection(sectionId) {
   document.getElementById(sectionId).style.display = "block";
 }
 
-// Navigation buttons
+// ---------------- NAVIGATION ----------------
 document.getElementById("createQuizBtn").addEventListener("click", () => showSection("quizCreation"));
 document.getElementById("takeQuizBtn").addEventListener("click", () => showSection("quizTaking"));
 document.getElementById("listQuizzesBtn").addEventListener("click", () => {
@@ -14,6 +14,7 @@ document.getElementById("listQuizzesBtn").addEventListener("click", () => {
 });
 document.getElementById("loginBtn").addEventListener("click", () => showSection("loginSection"));
 document.getElementById("registerBtn").addEventListener("click", () => showSection("registerSection"));
+document.getElementById("profileBtn").addEventListener("click", () => showSection("profileSection"));
 
 // ---------------- QUIZ CREATION ----------------
 document.getElementById("addQuestionBtn").addEventListener("click", () => {
@@ -48,7 +49,6 @@ document.getElementById("quizForm").addEventListener("submit", (e) => {
 
   const quiz = { title, questions };
 
-  // Save quizzes array in localStorage
   let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
   quizzes.push(quiz);
   localStorage.setItem("quizzes", JSON.stringify(quizzes));
@@ -59,17 +59,60 @@ document.getElementById("quizForm").addEventListener("submit", (e) => {
 });
 
 // ---------------- QUIZ LISTING ----------------
+
 function loadQuizList() {
   const quizList = document.getElementById("quizList");
-  quizList.innerHTML = "";
+  quizList.innerHTML = ""; // clear old list
   const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+
+  if (quizzes.length === 0) {
+    quizList.innerHTML = "<p>No quizzes available. Create one to get started!</p>";
+    return;
+  }
 
   quizzes.forEach((quiz, index) => {
     const li = document.createElement("li");
-    li.innerHTML = `${quiz.title} <button onclick="startQuiz(${index})">Take Quiz</button>`;
+    li.innerHTML = `
+      <strong>${quiz.title}</strong>
+      <button onclick="startQuiz(${index})">Take Quiz</button>
+      <button onclick="deleteQuiz(${index})">Delete</button>
+    `;
     quizList.appendChild(li);
   });
 }
+// Seed quizzes into localStorage if none exist
+if (!localStorage.getItem("quizzes")) {
+  const sampleQuizzes = [
+    {
+      title: "General Knowledge Basics",
+      questions: [
+        { question: "What is the capital of France?", options: ["Paris","Rome","Berlin","Madrid"], answer: "Paris" },
+        { question: "Who wrote Romeo and Juliet?", options: ["William Shakespeare","Charles Dickens","Mark Twain","Jane Austen"], answer: "William Shakespeare" },
+        { question: "Which planet is known as the Red Planet?", options: ["Earth","Mars","Jupiter","Venus"], answer: "Mars" }
+      ]
+    },
+    {
+      title: "Science Fundamentals",
+      questions: [
+        { question: "What gas do plants absorb during photosynthesis?", options: ["Oxygen","Carbon Dioxide","Nitrogen","Hydrogen"], answer: "Carbon Dioxide" },
+        { question: "What is the chemical symbol for water?", options: ["H2O","O2","CO2","HO"], answer: "H2O" },
+        { question: "Which organ in the human body pumps blood?", options: ["Brain","Heart","Lungs","Kidney"], answer: "Heart" }
+      ]
+    },
+    {
+      title: "World Geography",
+      questions: [
+        { question: "Which is the largest ocean on Earth?", options: ["Atlantic","Pacific","Indian","Arctic"], answer: "Pacific" },
+        { question: "Mount Everest is located in which mountain range?", options: ["Alps","Himalayas","Andes","Rockies"], answer: "Himalayas" },
+        { question: "The Nile River flows through which continent?", options: ["Asia","Africa","Europe","South America"], answer: "Africa" }
+      ]
+    }
+  ];
+
+  localStorage.setItem("quizzes", JSON.stringify(sampleQuizzes));
+}
+
+
 
 // ---------------- QUIZ TAKING ----------------
 let currentQuiz = null;
@@ -150,9 +193,39 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
   const user = JSON.parse(localStorage.getItem("user"));
   if (user && user.email === email && user.password === password) {
     alert("Login successful!");
-    showSection("quizListing");
-    loadQuizList();
+
+    // Show profile section immediately
+    showSection("profileSection");
+    document.getElementById("profileInfo").textContent =
+      `Logged in as: ${user.email}`;
+
+    // Show logout button
+    document.getElementById("logoutBtn").style.display = "inline-block";
   } else {
     alert("Invalid credentials!");
   }
+});
+
+// ---------------- LOGOUT ----------------
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("user");
+  alert("You have been logged out.");
+
+  // Hide logout button again
+  document.getElementById("logoutBtn").style.display = "none";
+
+  // Redirect back to login section
+  showSection("loginSection");
+});
+
+// ---------------- DELETE ACCOUNT ----------------
+document.getElementById("deleteAccountBtn").addEventListener("click", () => {
+  localStorage.removeItem("user");
+  alert("Account deleted successfully!");
+
+  // Hide logout button
+  document.getElementById("logoutBtn").style.display = "none";
+
+  // Redirect to register
+  showSection("registerSection");
 });
