@@ -106,13 +106,27 @@ if (!localStorage.getItem("quizzes")) {
         { question: "Mount Everest is located in which mountain range?", options: ["Alps","Himalayas","Andes","Rockies"], answer: "Himalayas" },
         { question: "The Nile River flows through which continent?", options: ["Asia","Africa","Europe","South America"], answer: "Africa" }
       ]
+    },
+    {
+      title: "Math Quick Quiz",
+      questions: [
+        { question: "What is 12 × 8?", options: ["96","84","108","88"], answer: "96" },
+        { question: "What is the square root of 144?", options: ["12","14","16","10"], answer: "12" },
+        { question: "What is 25% of 200?", options: ["50","25","75","100"], answer: "50" }
+      ]
+    },
+    {
+      title: "Computer Basics",
+      questions: [
+        { question: "What does CPU stand for?", options: ["Central Processing Unit","Computer Personal Unit","Control Power Unit","Core Processing Utility"], answer: "Central Processing Unit" },
+        { question: "Which company developed Windows OS?", options: ["Apple","Microsoft","Google","IBM"], answer: "Microsoft" },
+        { question: "HTML is used for?", options: ["Web Design","Database","Networking","Operating Systems"], answer: "Web Design" }
+      ]
     }
   ];
 
   localStorage.setItem("quizzes", JSON.stringify(sampleQuizzes));
 }
-
-
 
 // ---------------- QUIZ TAKING ----------------
 let currentQuiz = null;
@@ -229,3 +243,4 @@ document.getElementById("deleteAccountBtn").addEventListener("click", () => {
   // Redirect to register
   showSection("registerSection");
 });
+
