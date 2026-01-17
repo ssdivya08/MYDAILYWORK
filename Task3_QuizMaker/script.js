@@ -6,62 +6,98 @@ function showSection(sectionId) {
 }
 
 // ---------------- NAVIGATION ----------------
-document.getElementById("createQuizBtn").addEventListener("click", () => showSection("quizCreation"));
-document.getElementById("listQuizzesBtn").addEventListener("click", () => {
-  loadQuizList();
-  showSection("quizListing");
-});
-document.getElementById("loginBtn").addEventListener("click", () => showSection("loginSection"));
-document.getElementById("registerBtn").addEventListener("click", () => showSection("registerSection"));
-document.getElementById("profileBtn").addEventListener("click", () => showSection("profileSection"));
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("createQuizBtn").addEventListener("click", () => showSection("quizCreation"));
+  document.getElementById("listQuizzesBtn").addEventListener("click", () => {
+    loadQuizList();
+    showSection("quizListing");
+  });
+  document.getElementById("loginBtn").addEventListener("click", () => showSection("loginSection"));
+  document.getElementById("registerBtn").addEventListener("click", () => showSection("registerSection"));
+  document.getElementById("profileBtn").addEventListener("click", () => showSection("profileSection"));
 
-// ---------------- QUIZ CREATION ----------------
-document.getElementById("addQuestionBtn").addEventListener("click", () => {
-  const container = document.getElementById("questionsContainer");
-  const qIndex = container.children.length + 1;
+  // ---------------- QUIZ CREATION ----------------
+  document.getElementById("addQuestionBtn").addEventListener("click", () => {
+    const container = document.getElementById("questionsContainer");
+    const qIndex = container.children.length + 1;
 
-  const questionDiv = document.createElement("div");
-  questionDiv.innerHTML = `
-    <label>Question ${qIndex}:</label>
-    <input type="text" class="questionText" required><br>
-    <label>Options (comma separated):</label>
-    <input type="text" class="optionsText" required><br>
-    <label>Correct Answer:</label>
-    <input type="text" class="answerText" required><br><br>
-  `;
-  container.appendChild(questionDiv);
-});
-
-document.getElementById("quizForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const title = document.getElementById("quizTitle").value;
-  const questions = [];
-
-  document.querySelectorAll("#questionsContainer div").forEach(div => {
-    const q = div.querySelector(".questionText").value;
-    const opts = div.querySelector(".optionsText").value.split(",");
-    const ans = div.querySelector(".answerText").value;
-
-    questions.push({ question: q, options: opts, answer: ans });
+    const questionDiv = document.createElement("div");
+    questionDiv.innerHTML = `
+      <label>Question ${qIndex}:</label>
+      <input type="text" class="questionText" required><br>
+      <label>Options (comma separated):</label>
+      <input type="text" class="optionsText" required><br>
+      <label>Correct Answer:</label>
+      <input type="text" class="answerText" required><br><br>
+    `;
+    container.appendChild(questionDiv);
   });
 
-  const quiz = { title, questions };
+  document.getElementById("quizForm").addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
-  quizzes.push(quiz);
-  localStorage.setItem("quizzes", JSON.stringify(quizzes));
+    const title = document.getElementById("quizTitle").value;
+    const questions = [];
 
-  alert("Quiz saved successfully!");
-  document.getElementById("quizForm").reset();
-  document.getElementById("questionsContainer").innerHTML = "";
+    document.querySelectorAll("#questionsContainer div").forEach(div => {
+      const q = div.querySelector(".questionText").value;
+      const opts = div.querySelector(".optionsText").value.split(",");
+      const ans = div.querySelector(".answerText").value;
+
+      questions.push({ question: q, options: opts, answer: ans });
+    });
+
+    const quiz = { title, questions };
+
+    let quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+    quizzes.push(quiz);
+    localStorage.setItem("quizzes", JSON.stringify(quizzes));
+
+    alert("Quiz saved successfully!");
+    document.getElementById("quizForm").reset();
+    document.getElementById("questionsContainer").innerHTML = "";
+  });
+
+  // ---------------- LOGIN & REGISTER ----------------
+  document.getElementById("registerForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("registerEmail").value;
+    const password = document.getElementById("registerPassword").value;
+
+    localStorage.setItem("user", JSON.stringify({ email, password }));
+    alert("Registration successful!");
+    showSection("loginSection");
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.email === email && user.password === password) {
+      alert("Login successful!");
+      showSection("profileSection");
+      document.getElementById("profileInfo").textContent = `Logged in as: ${user.email}`;
+      document.getElementById("logoutBtn").style.display = "inline-block";
+    } else {
+      alert("Invalid credentials!");
+    }
+  });
+
+  // ---------------- LOGOUT ----------------
+  document.getElementById("logoutBtn").addEventListener("click", () => {
+    localStorage.removeItem("user");
+    alert("You have been logged out.");
+    document.getElementById("logoutBtn").style.display = "none";
+    showSection("loginSection");
+  });
 });
 
 // ---------------- QUIZ LISTING ----------------
-
 function loadQuizList() {
   const quizList = document.getElementById("quizList");
-  quizList.innerHTML = ""; // clear old list
+  quizList.innerHTML = "";
   const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 
   if (quizzes.length === 0) {
@@ -71,14 +107,20 @@ function loadQuizList() {
 
   quizzes.forEach((quiz, index) => {
     const li = document.createElement("li");
-    li.innerHTML = `
-  <strong>${quiz.title}</strong>
-  <button onclick="startQuiz(${index})">Take Quiz</button>
-  `;
+    const title = document.createElement("strong");
+    title.textContent = quiz.title;
+
+    const takeBtn = document.createElement("button");
+    takeBtn.textContent = "Take Quiz";
+    takeBtn.addEventListener("click", () => startQuiz(index));
+
+    li.appendChild(title);
+    li.appendChild(takeBtn);
     quizList.appendChild(li);
   });
 }
-// Seed quizzes into localStorage if none exist
+
+// ---------------- SEED SAMPLE QUIZZES ----------------
 if (!localStorage.getItem("quizzes")) {
   const sampleQuizzes = [
     {
@@ -122,9 +164,58 @@ if (!localStorage.getItem("quizzes")) {
       ]
     }
   ];
-
   localStorage.setItem("quizzes", JSON.stringify(sampleQuizzes));
 }
+
+// ---------------- QUIZ TAKING ----------------
+let currentQuiz = null;
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz(index) {
+  const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+  currentQuiz = quizzes[index];
+  currentQuestionIndex = 0;
+  score = 0;
+  showSection("quizTaking");
+  showQuestion();
+}
+
+function showQuestion() {
+  const container = document.getElementById("quizContainer");
+  container.innerHTML = "";
+
+  if (currentQuestionIndex < currentQuiz.questions.length) {
+    const qObj = currentQuiz.questions[currentQuestionIndex];
+    const qElem = document.createElement("div");
+    qElem.innerHTML = `<h3>${qObj.question}</h3>`;
+
+    qObj.options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.textContent = opt.trim();
+      btn.addEventListener("click", () => checkAnswer(opt.trim()));
+      qElem.appendChild(btn);
+    });
+
+    container.appendChild(qElem);
+  } else {
+    showResults();
+  }
+}
+
+function checkAnswer(selected) {
+  const qObj = currentQuiz.questions[currentQuestionIndex];
+  
+  // Check if the selected answer matches the correct one
+  if (selected === qObj.answer.trim()) {
+    score++;
+  }
+
+  // Move to the next question
+  currentQuestionIndex++;
+  showQuestion();
+}
+
 // ---------------- QUIZ RESULTS ----------------
 function showResults() {
   showSection("quizResults");
@@ -133,68 +224,10 @@ function showResults() {
 
   const answersDiv = document.getElementById("correctAnswers");
   answersDiv.innerHTML = "<h3>Correct Answers:</h3>";
+  
   currentQuiz.questions.forEach((q, i) => {
     const p = document.createElement("p");
     p.textContent = `Q${i+1}: ${q.question} → ${q.answer}`;
     answersDiv.appendChild(p);
   });
 }
-
-// ---------------- LOGIN & REGISTER ----------------
-document.getElementById("registerForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("registerEmail").value;
-  const password = document.getElementById("registerPassword").value;
-
-  localStorage.setItem("user", JSON.stringify({ email, password }));
-  alert("Registration successful!");
-  showSection("loginSection");
-});
-
-document.getElementById("loginForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
-
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (user && user.email === email && user.password === password) {
-    alert("Login successful!");
-
-    // Show profile section immediately
-    showSection("profileSection");
-    document.getElementById("profileInfo").textContent =
-      `Logged in as: ${user.email}`;
-
-    // Show logout button
-    document.getElementById("logoutBtn").style.display = "inline-block";
-  } else {
-    alert("Invalid credentials!");
-  }
-});
-
-// ---------------- LOGOUT ----------------
-document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("user");
-  alert("You have been logged out.");
-
-  // Hide logout button again
-  document.getElementById("logoutBtn").style.display = "none";
-
-  // Redirect back to login section
-  showSection("loginSection");
-});
-
-// ---------------- DELETE ACCOUNT ----------------
-document.getElementById("deleteAccountBtn").addEventListener("click", () => {
-  localStorage.removeItem("user");
-  alert("Account deleted successfully!");
-
-  // Hide logout button
-  document.getElementById("logoutBtn").style.display = "none";
-
-  // Redirect to register
-  showSection("registerSection");
-});
-
-
-
