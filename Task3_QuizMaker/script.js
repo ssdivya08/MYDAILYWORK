@@ -72,10 +72,9 @@ function loadQuizList() {
   quizzes.forEach((quiz, index) => {
     const li = document.createElement("li");
     li.innerHTML = `
-      <strong>${quiz.title}</strong>
-      <button onclick="startQuiz(${index})">Take Quiz</button>
-      <button onclick="deleteQuiz(${index})">Delete</button>
-    `;
+  <strong>${quiz.title}</strong>
+  <button onclick="startQuiz(${index})">Take Quiz</button>
+  `;
     quizList.appendChild(li);
   });
 }
@@ -196,5 +195,6 @@ document.getElementById("deleteAccountBtn").addEventListener("click", () => {
   // Redirect to register
   showSection("registerSection");
 });
+
 
 
