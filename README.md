@@ -17,7 +17,7 @@ bash
 cd MYDAILYWORK/Task1_Portfolio
 Open index.html in your browser.
 ## Test Steps
-Open the homepage and check welcome message.
+Open the homepage and check welcome message.?n
 Navigate through sections (Projects, Skills, Contact).
 
 ## Task 3 - Online Quiz Maker
@@ -33,9 +33,9 @@ bash
 cd MYDAILYWORK/Task3_QuizMaker
 Open index.html in your browser (double‑click or use Live Server in VS Code).
 ## Test Steps
-Create a quiz: Go to Create Quiz, add questions, and save.
-List quizzes: Click Quiz Listing to see available quizzes.
-Take a quiz: Select Take Quiz and answer questions.
-View results: After finishing, check your score and correct answers.
-Register/Login: Create a user account, login, and see profile info.
+Create a quiz: Go to Create Quiz, add questions, and save.?n
+List quizzes: Click Quiz Listing to see available quizzes.?n
+Take a quiz: Select Take Quiz and answer questions.?n
+View results: After finishing, check your score and correct answers.?n
+Register/Login: Create a user account, login, and see profile info.?n
 Logout: Test that session clears correctly.
