@@ -129,10 +129,11 @@ footer { text-align: center; margin-top: 30px; font-size: 0.9em; color: #777; }
 }
 
 #quizList button:last-of-type {
-  background: #e74c3c;
+  background: #f39c1;;
   color: white;
 }
 
 #quizList button:last-of-type:hover {
   background: #c0392b;
 }
+
