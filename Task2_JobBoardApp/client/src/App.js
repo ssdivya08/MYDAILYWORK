@@ -1,9 +1,20 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import JobListingsPage from "./pages/JobListingsPage";
+
 function App() {
   return (
-    <div>
-      <h1>Welcome to Job Board</h1>
-      <p>Find your dream job here.</p>
-    </div>
+    <Router>
+      <nav style={{ padding: "10px", background: "#f5f5f5" }}>
+        <Link to="/" style={{ marginRight: "15px" }}>Home</Link>
+        <Link to="/jobs">Job Listings</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/jobs" element={<JobListingsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
