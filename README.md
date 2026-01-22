@@ -60,8 +60,7 @@ Take a quiz and submit answers
 Check results and score
 
 Register, login, and logout functionality
-Author
-
+### Author
 Samatham Sai Divya
 B.Tech CSE | Internship Projects
 GitHub: https://github.com/ssdivya08
