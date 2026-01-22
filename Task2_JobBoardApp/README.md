@@ -30,33 +30,6 @@ A full-stack Job Board web application that allows employers to post job opening
 - Mongoose
 - Multer (for resume upload – optional)
 
-
-##  Project Structure
-
-Task2_JobBoardApp/
-├── client/
-│ ├── public/
-│ ├── src/
-│ │ ├── pages/
-│ │ │ ├── Home.js
-│ │ │ ├── Jobs.js
-│ │ │ ├── Employer.js
-│ │ │ └── Apply.js
-│ │ └── App.js
-│ └── package.json
-│
-├── server/
-│ ├── models/
-│ │ ├── Job.js
-│ │ └── Application.js
-│ ├── routes/
-│ │ ├── jobs.js
-│ │ └── apply.js
-│ ├── index.js
-│ └── package.json
-│
-└── README.md
-
 ## ▶️ How to Run the Application
 
 ### 1️⃣ Clone the Repository
