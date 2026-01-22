@@ -15,14 +15,15 @@ A personal portfolio website showcasing my skills, projects, and contact informa
 ```bash
 git clone https://github.com/ssdivya08/MYDAILYWORK.git
 cd MYDAILYWORK/Task1_Portfolio
+```
 Open index.html in your browser.
 
-Test Steps
+### Test Step
 Open homepage and verify welcome message
 
 Navigate through Projects, Skills, and Contact sections
 
- Task 2 – Job Board Application (Full Stack)
+### Task 2 – Job Board Application (Full Stack)
 A full-stack Job Board application where employers can post jobs and candidates can browse and apply.
 
  Folder: Task2_JobBoardApp
@@ -32,21 +33,23 @@ A full-stack Job Board application where employers can post jobs and candidates 
  This task runs locally (backend + frontend).
 Detailed setup steps are available inside the Task 2 README.
 
- Task 3 – Online Quiz Maker
+### Task 3 – Online Quiz Maker
 A responsive quiz platform supporting quiz creation, listing, participation, results, and user authentication.
 
  Folder: Task3_QuizMaker
 
  Live Demo: https://ssdivya08.github.io/MYDAILYWORK/Task3_QuizMaker/index.html
 
-Run Instructions
+### Run Instructions
 bash
+```
 Copy code
 git clone https://github.com/ssdivya08/MYDAILYWORK.git
 cd MYDAILYWORK/Task3_QuizMaker
+```
 Open index.html in your browser (or use Live Server in VS Code).
 
-Test Steps
+### Test Steps
 
 Create a quiz with multiple questions
 
