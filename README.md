@@ -61,6 +61,8 @@ Check results and score
 
 Register, login, and logout functionality
 ### Author
-Samatham Sai Divya
-B.Tech CSE | Internship Projects
+Samatham Sai Divya 
+
+B.Tech CSE | Internship Projects 
+
 GitHub: https://github.com/ssdivya08
