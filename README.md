@@ -24,7 +24,7 @@ Open homepage and verify welcome message
 Navigate through Projects, Skills, and Contact sections
 
 ### Task 2 – Job Board Application (Full Stack)
-A full-stack Job Board application where employers can post jobs and candidates can browse and apply.
+A full-stack Job Board application where employers can post  jobs and candidates can browse and apply.
 
  Folder: Task2_JobBoardApp
 
