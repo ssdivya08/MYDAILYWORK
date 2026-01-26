@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-
 export default function Employer() {
   const [job, setJob] = useState({
     title: "",
@@ -8,7 +7,7 @@ export default function Employer() {
     location: "",
     description: ""
   });
-
+// Handles job form submission and sends data to backend
   const handleChange = (e) => {
     setJob({ ...job, [e.target.name]: e.target.value });
   };

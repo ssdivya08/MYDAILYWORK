@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-
 export default function Apply() {
   const { id } = useParams();
   const [form, setForm] = useState({
@@ -9,7 +8,6 @@ export default function Apply() {
     email: "",
     resume: null
   });
-
   const handleChange = (e) => {
     if (e.target.name === "resume") {
       setForm({ ...form, resume: e.target.files[0] });
