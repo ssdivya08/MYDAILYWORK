@@ -2,7 +2,7 @@
 
 # Task 2 – Job Board Application
 
-A full-stack Job Board web application that allows employers to post job openings and candidates to search and apply for jobs.
+A full-stack JOB BOARD web application that allows employers to post job openings and candidates to search and apply for jobs.
 
 ###  Employer
 - Post new job openings
