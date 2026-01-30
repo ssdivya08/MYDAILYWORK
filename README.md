@@ -60,6 +60,13 @@ Take a quiz and submit answers
 Check results and score
 
 Register, login, and logout functionality
+
+## Security Note:
+
+Authentication in Task3_QuizMaker is for demo purposes only.  
+
+Passwords are handled client-side and not intended for production use.
+
 ### Author
 Samatham Sai Divya 
 
